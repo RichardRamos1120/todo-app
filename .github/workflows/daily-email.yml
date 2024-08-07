@@ -1,0 +1,14 @@
+name: Daily Email Reminder
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+
+jobs:
+  send_emails:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Emails
+        run: |
+          curl -X GET https://todo-app-xi-taupe.vercel.app/api/schedule
